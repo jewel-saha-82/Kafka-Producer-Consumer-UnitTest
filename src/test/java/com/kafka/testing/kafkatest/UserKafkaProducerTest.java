@@ -50,6 +50,7 @@ class UserKafkaProducerTest {
     void setUp() {
         DefaultKafkaConsumerFactory<String, String> consumerFactory = new DefaultKafkaConsumerFactory<>(
                 getConsumerProperties());
+        // Contains runtime properties for a listener container.
         ContainerProperties containerProperties = new ContainerProperties("test.topic");
         container = new KafkaMessageListenerContainer<>(consumerFactory, containerProperties);
         records = new LinkedBlockingQueue<>();
